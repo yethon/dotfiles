@@ -16,7 +16,7 @@ ZSH_THEME="muse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #  -------------------
-plugins=(git colored-man-pages)
+plugins=(git colored-man-pages zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -40,9 +40,18 @@ source $HOME/secrets.sh
 # -------------------
 # URSULA
 # -------------------
-source ~/.zsh/zsh-autosuggestions/dist/autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-autosuggest_start
+# it's a YUK
+export JAVA_OPTS="-Xmx3g -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# Set CLICOLOR if you want Ansi Colors in iTerm2 
+export CLICOLOR=1
+
+# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
+
+# docker - set up docker in every terminal
+# eval "$(docker-machine env default)"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -99,3 +108,14 @@ autosuggest_start
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# added by travis gem
+[ -f /Users/ursula.yethon/.travis/travis.sh ] && source /Users/ursula.yethon/.travis/travis.sh
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
