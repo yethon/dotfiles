@@ -23,13 +23,13 @@ source $ZSH/oh-my-zsh.sh
 # -------------------
 # PATH
 # -------------------
-export PATH="$HOME/.dotfiles/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
 
 # -------------------
 # ALIASES
 # For a full list of active aliases, run `alias`.
 # -------------------
-source $HOME/.dotfiles/aliases.sh
+source $HOME/dotfiles/aliases.sh
 
 # -------------------
 # SECRETS
