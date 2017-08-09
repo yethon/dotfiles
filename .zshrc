@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # PATH
 # -------------------
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
+export PATH="$PATH:/usr/local/opt/mysql@5.6/bin"
 
 # -------------------
 # ALIASES
@@ -33,7 +34,7 @@ source $HOME/dotfiles/aliases.sh
 
 # -------------------
 # SECRETS
-# ..because secrets are secret and shouldn't be in your repo
+# ...because secrets are secret and shouldn't be in your repo
 # -------------------
 source $HOME/secrets.sh
 
@@ -116,6 +117,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # added by travis gem
 [ -f /Users/ursula.yethon/.travis/travis.sh ] && source /Users/ursula.yethon/.travis/travis.sh
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

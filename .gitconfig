@@ -73,8 +73,6 @@
   # tag
   t = tag -n                        # show tags with <n> lines of each tag message
 
-  delete-merged-branches = "!git branch --merged | grep -v master | grep -v $(git symbolic-ref --short HEAD) | xargs git branch -d"
-
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
