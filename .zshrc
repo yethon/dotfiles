@@ -2,6 +2,12 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # -------------------
+# PATH
+# -------------------
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# -------------------
 # THEME
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
@@ -18,41 +24,11 @@ ZSH_THEME="muse"
 #  -------------------
 plugins=(git colored-man-pages zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
-
-# -------------------
-# PATH
-# -------------------
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki"
-export PATH="$PATH:/usr/local/opt/mysql@5.6/bin"
-
-# -------------------
-# ALIASES
-# For a full list of active aliases, run `alias`.
-# -------------------
-source $HOME/dotfiles/aliases.sh
-
-# -------------------
-# SECRETS
-# ...because secrets are secret and shouldn't be in your repo
-# -------------------
-source $HOME/secrets.sh
-
-# -------------------
-# URSULA
-# -------------------
-# it's a YUK
-export JAVA_OPTS="-Xmx3g -XX:MaxPermSize=512m -XX:+CMSClassUnloadingEnabled"
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
-
-# Set CLICOLOR if you want Ansi Colors in iTerm2 
-export CLICOLOR=1
+# Set CLICOLOR if you want Ansi Colors in iTerm2.
+# export CLICOLOR=1 ???
 
 # Set colors to match iTerm2 Terminal Colors
-export TERM=xterm-256color
-
-# docker - set up docker in every terminal
-# eval "$(docker-machine env default)"
+# export TERM=xterm-256color ???
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -109,11 +85,28 @@ export TERM=xterm-256color
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-#
+source $ZSH/oh-my-zsh.sh
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+# User configuration
+# -------------------
+# URSULA
+# -------------------
 
-# added by travis gem
-[ -f /Users/ursula.yethon/.travis/travis.sh ] && source /Users/ursula.yethon/.travis/travis.sh
+# Additional fzf configuration
+# https://github.com/jneen/rouge
+export FZF_CTRL_T_OPTS="--preview '(rougify {} || cat {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
+# -------------------
+# ALIASES
+# For a full list of active aliases, run `alias`.
+# -------------------
+source $HOME/.config/aliases.sh
+
+# -------------------
+# SECRETS
+# ...because secrets are secret and shouldn't be in your repo
+# -------------------
+# source $HOME/secrets.sh
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
