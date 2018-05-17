@@ -100,6 +100,9 @@
 
   editor = "NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 
-  # npm install -g diff-so-fancy
-  git config --global pager.diff "diff-so-fancy | less --tabs=4 -RFX"
-  git config --global pager.show "diff-so-fancy | less --tabs=4 -RFX"
+  # Hey - dont forget! npm install -g diff-so-fancy
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
